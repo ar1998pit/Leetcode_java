@@ -1,0 +1,47 @@
+You are given an n x n 2D matrix representing an image.
+
+Rotate the image by 90 degrees (clockwise).
+
+Note:
+
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+
+Example 1:
+
+Given input matrix = 
+[
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+],
+
+rotate the input matrix in-place such that it becomes:
+[
+  [7,4,1],
+  [8,5,2],
+  [9,6,3]
+]
+
+
+import java.util.*;
+class Solution {
+    public void rotate(int[][] m) {
+     int n = m[0].length, p = 0;
+       for(int row=0;row<n;row++){
+           for(int col=0;col<n-p;col++){
+               int temp=m[row][col];
+               m[row][col]=m[n-col-1][n-row-1];
+               m[n-col-1][n-row-1]=temp;
+           }
+           p++;
+       }
+        int mid=n/2;
+        for(int row=0;row<mid;row++){
+           for(int col=0;col<n;col++){
+               int temp=m[row][col];
+               m[row][col]=m[n-row-1][col];
+               m[n-row-1][col]=temp;
+           }
+       }
+        
+    }}
