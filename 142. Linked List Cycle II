@@ -6,7 +6,7 @@ public class Solution {
     public ListNode detectCycle(ListNode head) {
         ListNode slptr = head;
         ListNode fasptr = head;
-        while (slptr != null && fasptr !=null){
+        while (slptr != null && fasptr !=null && fasptr.next != null){
             slptr = slptr.next;
             fasptr = fasptr.next.next;
             
