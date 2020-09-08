@@ -1,0 +1,24 @@
+https://leetcode.com/problems/linked-list-cycle-ii/
+
+
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slptr = head;
+        ListNode fasptr = head;
+        while (slptr != null && fasptr !=null){
+            slptr = slptr.next;
+            fasptr = fasptr.next.next;
+            
+            if (slptr == fasptr){
+                slptr = head;
+                while(slptr!=fasptr){
+                    slptr = slptr.next;
+                    fasptr = fasptr.next;
+            }
+                return slptr;
+        }      
+    }
+        return null;
+    }
+}
