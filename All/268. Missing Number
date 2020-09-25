@@ -1,0 +1,35 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        int i;
+        Arrays.sort(nums);
+        for(i=0;i<nums.length;i++){
+            if(nums[i]!=i)
+            { 
+                break;
+            }
+        }
+        return i;  
+    }
+}
+
+
+
+==================================================
+Solution 1: Gauss' Formula
+
+class Solution {
+    public int missingNumber(int[] nums) {
+       int n = nums.length;
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+            
+        for(int num : nums) 
+            actualSum += num;
+        int res = expectedSum - actualSum;
+            if (res > 0){
+                return res;
+            }
+        else
+            return res*-1;
+}
+}
