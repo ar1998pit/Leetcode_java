@@ -1,0 +1,15 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+      int a = 0;
+        for(int num : nums)
+            a = a ^ num;
+        return a;  
+    }
+}
+
+
+XOR property
+A^A=0 and
+A^0=A
+so XOR of any element that exist twice (or any even occurence) will always result in 0. This will leave XOR of every element with odd occurence.
+In this problem since there exist only one such number, hence it will be result.
